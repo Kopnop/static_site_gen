@@ -12,7 +12,9 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
             new_nodes.append(node)
             continue
         #     raise Exception("invalid markdown syntax: delimiter not found")
+        #print(node.text)
         parts = node.text.split(delimiter)
+        #print(parts)
         if len(parts) % 2 == 0:
             raise Exception("invalid markdown syntax: length")
 
