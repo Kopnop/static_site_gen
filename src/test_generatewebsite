@@ -1,0 +1,12 @@
+import unittest
+
+from generate_website import *
+
+class TestGenerateWebsite(unittest.TestCase):
+    #test extract_title
+    def test_extract_title(self):
+        md = "#       Tolkien Fan Club         \n\n**I like Tolkien**. Read my [first post here](/majesty) (sorry the link doesn't work yet)\n\n> All that is gold does not glitter"
+        self.assertEqual(extract_title(md), "Tolkien Fan Club")
+
+if __name__ == "__main__":
+    unittest.main()

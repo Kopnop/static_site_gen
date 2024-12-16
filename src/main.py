@@ -1,17 +1,22 @@
+import shutil
+import os
+
 from textnode import *
 from htmlnode import *
 from splitdelimiter import *
 from block_markdown import *
+from generate_website import *
 
 def main():
-    #print(f"h{count_hashes("# 3#")}")
-    #count_hashes("### 3#")
-    quote = "### heading\n\n>quote with **bold** word"
-    ul = "* an\n* undordered with a *italic looking* word\n* list"
-    ol = "1. ordered\n2. **bold word**\n3. list"
-    ouput = markdown_to_html_node(ol)
-    print("\n")
-    print(ouput)
+    copy_to_dir("/home/kopnop/workspace/github.com/kopnop/static_site_gen/static", "/home/kopnop/workspace/github.com/kopnop/static_site_gen/public/")
+    # generate_page("/home/kopnop/workspace/github.com/kopnop/static_site_gen/content/index.md", 
+    #                 "/home/kopnop/workspace/github.com/kopnop/static_site_gen/template.html",
+    #                 "/home/kopnop/workspace/github.com/kopnop/static_site_gen/public"
+    #               )
+    generate_pages_recursive("/home/kopnop/workspace/github.com/kopnop/static_site_gen/content/",
+                                "/home/kopnop/workspace/github.com/kopnop/static_site_gen/template.html",
+                                "/home/kopnop/workspace/github.com/kopnop/static_site_gen/public"
+                            )
     pass
 
 main()

@@ -33,7 +33,7 @@ def markdown_to_html_node(markdown):
     for block in md_blocks:
         match block_to_block_type(block):
             case "quote":
-                text_blocks = text_to_textnodes(block[1:])
+                text_blocks = text_to_textnodes(block[2:])
                 html_nodes = []
                 for text_block in text_blocks:
                     html_nodes.append(text_node_to_html_node(text_block))
@@ -71,7 +71,7 @@ def markdown_to_html_node(markdown):
 
                 code_node = ParentNode("code", html_nodes)
                 #TODO: check if list needed
-                parent = ParentNode("pre", code_node)
+                parent = ParentNode("pre", [code_node])
                 converted_blocks.append(parent)
             case "heading":
                 amount_hashes = count_hashes(block)

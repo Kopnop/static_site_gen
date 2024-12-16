@@ -31,8 +31,9 @@ class TestBlockMarkdown(unittest.TestCase):
         ul = "* unordered list\n* unordered with a **bold word**"
         ouput = markdown_to_html_node(ul)
         #correct_output = ParentNode("div", [ParentNode("ul", ParentNode("li", []))])
-        print("\n")
-        print(ouput)
+        #check in console output if result is correct
+        #print("\n")
+        #print(ouput)
     
     def test_md_to_html_wrong_syntax(self):
         self.assertRaises(Exception, lambda: markdown_to_html_node("### heading\n\n>quote **with** **bold"))
